@@ -1,4 +1,10 @@
+<button (click)="login()" *ngIf="!isLoggedin()">Login</button>
+<button (click)="logout()" *ngIf="isLoggedin()">Logout</button>
+
 <div id="main-container" *ngIf="isLoggedin()">
   <app-snippet-sidebar (onSelectedSnippet)="onSelected($event)" id="sidebar"></app-snippet-sidebar>
   <app-snippet-content [selectedSnippet]="selectedItem" id="content"></app-snippet-content>
+</div>
+<div *ngIf="!isLoggedin()">
+  <h2>You are not logged in!</h2>
 </div>

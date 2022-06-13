@@ -21,6 +21,7 @@ namespace TextSnippets.BackEnd.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Users")]
         public IActionResult Get()
         {
             var results = service.GetAll();
@@ -28,6 +29,7 @@ namespace TextSnippets.BackEnd.Controllers
         }
 
         [HttpGet("search")]
+        [Authorize(Roles = "Users")]
         public IActionResult Search([FromQuery]string q)
         {
             var results = service.Search(q);
@@ -35,6 +37,7 @@ namespace TextSnippets.BackEnd.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(CUSnippetRequest request)
         {
             var textSnippetDto = mapper.Map<TextSnippetDto>(request);
@@ -43,6 +46,7 @@ namespace TextSnippets.BackEnd.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(CUSnippetRequest request)
         {
             var textSnippetDto = mapper.Map<TextSnippetDto>(request);
@@ -51,6 +55,7 @@ namespace TextSnippets.BackEnd.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(long id)
         {
             service.Delete(id);

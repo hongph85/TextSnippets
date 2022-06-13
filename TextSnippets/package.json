@@ -22,10 +22,12 @@
     "@angular/platform-browser": "~11.0.0",
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
+    "@azure/msal-angular": "^2.3.1",
+    "@azure/msal-browser": "^2.25.0",
+    "jest-editor-support": "*",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "jest-editor-support": "*"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.0",
