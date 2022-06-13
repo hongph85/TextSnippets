@@ -1,0 +1,4 @@
+<div *ngIf="selectedSnippet" [innerHtml]="selectedSnippet.text | highlighter:searchText:'full'"></div>
+<div class="search-input">
+  <label for="">Search here: </label> <input [(ngModel)]="searchText" type="search">
+</div>

@@ -1,3 +1,4 @@
 <div id="main-container" *ngIf="isLoggedin()">
   <app-snippet-sidebar (onSelectedSnippet)="onSelected($event)" id="sidebar"></app-snippet-sidebar>
+  <app-snippet-content [selectedSnippet]="selectedItem" id="content"></app-snippet-content>
 </div>
