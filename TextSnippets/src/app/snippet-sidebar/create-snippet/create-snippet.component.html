@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Create Snippet!</h1>
+<div mat-dialog-content>
+  <div>
+    <label>Title</label>
+    <input type="text" [(ngModel)]="item.title" />
+  </div>
+  <div>
+    <label>Text</label>
+    <input type="text" [(ngModel)]="item.text" />
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="save()">Save</button>
+  <button mat-button [mat-dialog-close] cdkFocusInitial>Close</button>
+</div>

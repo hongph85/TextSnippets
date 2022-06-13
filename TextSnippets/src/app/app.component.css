@@ -1,0 +1,19 @@
+#main-container {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+#sidebar {
+  display: table-cell;
+  width: 30%;
+  vertical-align: top;
+  background-color: #8e44ad;
+}
+
+#content {
+  display: table-cell;
+  width: 70%;
+  vertical-align: top;
+  padding: 10px 0 0 10px;
+}

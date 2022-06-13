@@ -1,0 +1,8 @@
+<div id="sidebar">
+  <ng-container *ngFor="let snippet of snippets">
+    <a href="javascript:void(0)" (click)="onClick(snippet)">{{snippet.text}}</a>
+    <button (click)="onEdit(snippet)">Edit</button>
+    <button (click)="onDelete(snippet.id)">Remove</button>
+  </ng-container>
+  <button (click)="addNew()">Add new</button>
+</div>

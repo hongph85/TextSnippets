@@ -1,0 +1,3 @@
+<div id="main-container" *ngIf="isLoggedin()">
+  <app-snippet-sidebar (onSelectedSnippet)="onSelected($event)" id="sidebar"></app-snippet-sidebar>
+</div>
