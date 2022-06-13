@@ -27,6 +27,13 @@ namespace TextSnippets.BackEnd.Controllers
             return Ok(results);
         }
 
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery]string q)
+        {
+            var results = service.Search(q);
+            return Ok(results);
+        }
+
         [HttpPost]
         public IActionResult Create(CUSnippetRequest request)
         {

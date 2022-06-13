@@ -1,5 +1,6 @@
 <div id="sidebar">
   <ng-container *ngFor="let snippet of snippets">
+    <app-filter-snippet (values)="onFilter($event)"></app-filter-snippet>
     <a href="javascript:void(0)" (click)="onClick(snippet)">{{snippet.text}}</a>
     <button (click)="onEdit(snippet)">Edit</button>
     <button (click)="onDelete(snippet.id)">Remove</button>
