@@ -9,5 +9,6 @@ namespace TextSnippets.Business.Interfaces
         bool Create(TextSnippetDto textSnippetDto);
         bool Update(TextSnippetDto textSnippetDto);
         bool Delete(long id);
+        PaginationDto<TextSnippetDto> GetByPage(int page, int itemsPerPage);
     }
 }

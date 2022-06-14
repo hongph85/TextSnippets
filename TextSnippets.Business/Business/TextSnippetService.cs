@@ -54,5 +54,18 @@ namespace TextSnippets.Business
             repository.Delete(id);
             return true;
         }
+
+        public PaginationDto<TextSnippetDto> GetByPage(int page, int itemsPerPage)
+        {
+            var result = mapper.Map<IEnumerable<TextSnippetDto>>(repository.GetByPage(page, itemsPerPage, out int totalItems));
+
+            return new PaginationDto<TextSnippetDto>()
+            {
+                TotalItems = totalItems,
+                Items = result,
+                Page = page,
+                Size = itemsPerPage
+            };
+        }
     }
 }

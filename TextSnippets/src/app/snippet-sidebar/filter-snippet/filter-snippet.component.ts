@@ -27,9 +27,7 @@ export class FilterSnippetComponent implements OnInit {
       });
     }
     else {
-      this.http.get<TextSnippet[]>('/textsnippet').subscribe(result => {
-        this.values.emit(result);
-      }, error => console.error(error));
+      window.location.reload();
     }
   }
 }

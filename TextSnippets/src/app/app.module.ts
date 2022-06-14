@@ -17,6 +17,7 @@ import {
 } from '@angular/material/form-field'
 import { MsalGuard, MsalInterceptor, MsalInterceptorConfiguration, MsalModule, MsalRedirectComponent, MsalService, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG } from '@azure/msal-angular';
 import { InteractionType, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { InteractionType, IPublicClientApplication, PublicClientApplication } fr
           ['https://graph.microsoft.com/v1.0/me',["user.read"]],
           ['localhost', ["api://7893cfa1-3908-49e6-b6b2-fda77793e9e3/api.scope"]],
         ])
-      })
+      }),
+    NgxPaginationModule,
   ],
   providers: [
     {

@@ -62,5 +62,11 @@ namespace TextSnippets.Data.Repositories
             _textSnippets.Remove(item);
             return true;
         }
+
+        public IEnumerable<TextSnippet> GetByPage(int page, int size, out int totalItems)
+        {
+            totalItems = _textSnippets.Count;
+            return _textSnippets.Skip((page - 1) * size).Take(size).ToList();
+        }
     }
 }

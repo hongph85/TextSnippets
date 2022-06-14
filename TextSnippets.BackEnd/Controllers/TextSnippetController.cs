@@ -61,5 +61,12 @@ namespace TextSnippets.BackEnd.Controllers
             service.Delete(id);
             return Ok();
         }
+
+        [HttpGet("items")]
+        public IActionResult GetByPage([FromQuery] int page, [FromQuery] int size)
+        {
+            var result = service.GetByPage(page, size);
+            return Ok(result);
+        }
     }
 }

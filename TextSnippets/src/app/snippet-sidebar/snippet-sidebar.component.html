@@ -1,9 +1,16 @@
 <div id="sidebar">
-  <ng-container *ngFor="let snippet of snippets">
+  <ng-container *ngFor="let snippet of snippets| paginate
+          : {
+              itemsPerPage: itemsPerPage,
+              currentPage: page,
+              totalItems: totalItems
+            }">
     <app-filter-snippet (values)="onFilter($event)"></app-filter-snippet>
     <a href="javascript:void(0)" (click)="onClick(snippet)">{{snippet.text}}</a>
     <button (click)="onEdit(snippet)">Edit</button>
     <button (click)="onDelete(snippet.id)">Remove</button>
   </ng-container>
+  <pagination-controls class="pagi"
+                       (pageChange)="gty((page = $event))" *ngIf="!hidePagingCtl"></pagination-controls>
   <button (click)="addNew()">Add new</button>
 </div>

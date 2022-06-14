@@ -10,15 +10,18 @@ import { CreateSnippetComponent } from './create-snippet/create-snippet.componen
 export class SnippetSidebarComponent implements OnInit {
   public snippets?: TextSnippet[];
   @Output() onSelectedSnippet: EventEmitter<any> = new EventEmitter<any>();
+  page = 1;
+  itemsPerPage = 2;
+  totalItems: any;
+  hidePagingCtl: boolean;
   constructor(
     public http: HttpClient,
     public dialog: MatDialog) {
-    http.get<TextSnippet[]>('/textsnippet').subscribe(result => {
-      this.snippets = result;
-    }, error => console.error(error));
+    this.gty(1);
   }
 
   ngOnInit(): void {
+    this.hidePagingCtl = false;
   }
 
   onClick(item: TextSnippet) {
@@ -27,6 +30,7 @@ export class SnippetSidebarComponent implements OnInit {
 
   onFilter(values: TextSnippet[]) {
     this.snippets = values;
+    this.hidePagingCtl = true;
   }
 
   addNew() {
@@ -56,6 +60,13 @@ export class SnippetSidebarComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       window.location.reload();
     });
+  }
+
+  gty(page: any) {
+    this.http.get(`/textsnippet/items?page=${this.page}&size=${this.itemsPerPage}`).subscribe((result: any) => {
+      this.snippets = result.items;
+      this.totalItems = result.totalItems;
+    }, error => console.error(error));
   }
 }
 

@@ -9,5 +9,6 @@ namespace TextSnippets.Data.Interfaces
         bool Create(TextSnippet snippet);
         bool Update(TextSnippet snippet);
         bool Delete(long id);
+        IEnumerable<TextSnippet> GetByPage(int page, int size, out int totalItems);
     }
 }
